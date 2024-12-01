@@ -15,7 +15,7 @@ def print_hello_again():
 default_args = {
     "owner": "airflow",
     "depends_on_past": False,
-    "start_date": pendulum.datetime(2024, 1, 1, tz="Asia/Bangkok"),
+    "start_date": pendulum.datetime(2024, 11, 27, tz="Asia/Bangkok"),
     "retries": 1,
     "retry_delay": timedelta(minutes=2),
 }
@@ -25,7 +25,7 @@ with DAG(
     default_args=default_args,
     description="A simple DAG that prints Hello World",
     schedule_interval=timedelta(minutes=2),
-    catchup=False,
+    catchup=True,
 ) as dag:
 
     hello_task = PythonOperator(

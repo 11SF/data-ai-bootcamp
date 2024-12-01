@@ -19,8 +19,8 @@ default_args = {
 }
 
 PROJECT_ID = "dataaibootcamp"
-DATASET_ID = "dataai_name_yyyy"
-BUCKET_NAME = "dataai-name-yyyy"
+DATASET_ID = "dataai_folk_2001"
+BUCKET_NAME = "dataai-folk-2001"
 
 with DAG(
     "09_pg_to_gcs_to_bq_dag",

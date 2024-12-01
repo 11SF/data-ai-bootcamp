@@ -18,7 +18,7 @@ default_args = {
 }
 
 PROJECT_ID = "dataaibootcamp"
-DATASET_ID = "dataai_name_yyyy"
+DATASET_ID = "dataai_folk_2001"
 
 def extract(**context):
     postgres_hook = PostgresHook(postgres_conn_id='pg_conn')
