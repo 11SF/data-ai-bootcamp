@@ -12,7 +12,7 @@ projec_id=`YOUR_PROJECT_ID`
 
 1. Collect Data from API using PythonOperator
 and Save results in GSC 
-bucket_name=`deb-gemini-code-assist-YOUR_NAME` 
+bucket_name=`dataai-folk-2001` 
 folder=`raw/coingecko`
 https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether&vs_currencies=usd,thb&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true
 
