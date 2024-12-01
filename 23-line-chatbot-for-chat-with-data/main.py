@@ -22,6 +22,7 @@ from linebot.v3.messaging import (
     FlexMessage,
     FlexContainer,
     ShowLoadingAnimationRequest,
+    PushMessageRequest,
 )
 
 from commons.gcs_utils import upload_blob_from_memory

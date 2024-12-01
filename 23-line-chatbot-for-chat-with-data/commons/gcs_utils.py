@@ -1,6 +1,7 @@
 import os
 from google.cloud import storage
 
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "privates/sa.json"
 
 def upload_blob_from_memory(contents, type, user_id, message_id):
     """Uploads a file to the bucket."""

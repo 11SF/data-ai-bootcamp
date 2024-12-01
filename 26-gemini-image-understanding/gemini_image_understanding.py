@@ -1,19 +1,17 @@
 import os
+import sys
 import re
 import json
 import vertexai
 import vertexai.generative_models as genai
 
-GCP_PROJECT_ID = os.environ["GCP_PROJECT_ID"]
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "privates/sa.json"
 
 
 def gemini_describe_image(user_id, message_id):
-    bucket_name = os.environ["GCS_BUCKET_STORAGE"]
+    GCP_PROJECT_ID = os.environ["GCP_PROJECT_ID"]
     vertexai.init(project=GCP_PROJECT_ID, location="us-central1")
-
-    destination_blob_name = f"LINE_USERS/{user_id}/image/{message_id}.jpg"
-    gsc_image_path = "gs://{}/{}".format(bucket_name, destination_blob_name)
+    gsc_image_path = "gs://vertex_ai_search_data_9999/LINEUSER/test/image/001.jpg"
+    print(gsc_image_path)
 
     image_file = genai.Part.from_uri(
         gsc_image_path,
@@ -40,3 +38,13 @@ def gemini_describe_image(user_id, message_id):
 
     return data_dict
 
+
+if __name__ == "__main__":
+    outer_lib_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../"))
+    sys.path.append(outer_lib_path)
+    from commons.manage_secret import load_secrets
+    load_secrets("vertex_ai_secret.yml")
+    
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "sa.json"
+    response = gemini_describe_image("test", "001")
+    print(response)
