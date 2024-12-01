@@ -80,7 +80,7 @@ with DAG(
             data[coin]['last_updated_at'] = datetime.fromtimestamp(values['last_updated_at']).isoformat()
 
         # Upload JSON data to GCS
-        bucket_name = kwargs['dataai-folk-2001']
+        bucket_name = kwargs['bucket_name']
         gcs_folder = 'raw/coingecko'
         gcs_hook = GCSHook()
         gcs_hook.upload(
@@ -92,7 +92,7 @@ with DAG(
     collect_data_task = PythonOperator(
         task_id='collect_coingecko_data',
         python_callable=collect_coingecko_data,
-        op_kwargs={'dataai-folk-2001': 'dataai-folk-2001'},  # Replace with your bucket name
+        op_kwargs={'bucket_name': 'dataai-folk-2001'},  # Replace with your bucket name
     )
 
     # Task 2: Load data from GCS to BigQuery
