@@ -100,7 +100,7 @@ with DAG(
         task_id='load_to_bigquery',
         bucket='dataai-folk-2001',  # Replace with your bucket name
         source_objects=['raw/coingecko/*.json'],  # Load all JSON files in the folder
-        destination_project_dataset_table='gemini_assist_workshop.coingecko_price',
+        destination_project_dataset_table='dataaibootcamp.dataai_folk_2001.coingecko_price',
         write_disposition='WRITE_APPEND',  # Append data to the table
         source_format='NEWLINE_DELIMITED_JSON',
         create_disposition='CREATE_IF_NEEDED',  # Create the table if it doesn't exist
